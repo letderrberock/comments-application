@@ -5,10 +5,13 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
 	const [listOfPosts, setListOfPosts] = useState([]);
 
-	useEffect(() => {
+	const fetchAllPosts = () => {
 		axios.get('http://localhost:3001/posts').then((response) => {
 			setListOfPosts(response.data);
 		});
+	};
+	useEffect(() => {
+		fetchAllPosts();
 	}, []);
 
 	const navigate = useNavigate();

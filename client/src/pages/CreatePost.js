@@ -18,8 +18,9 @@ const CreatePost = () => {
 		username: '',
 	};
 
-	const onSubmitPost = (data) => {
-		axios.post('http://localhost:3001/posts', data);
+	const onSubmitPost = async (data) => {
+		await axios.post('http://localhost:3001/posts', data);
+		// fetchAllPosts();
 		navigate('/');
 	};
 
